@@ -10,6 +10,7 @@ import { Login } from './pages/Login';
 import { Register } from './pages/Register';
 import { Contact } from './pages/Contact';
 
+export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 
 export const App = () => {
@@ -22,6 +23,7 @@ export const App = () => {
     }
     requestAnimationFrame(raf);
   },[])
+  
   return (
     <>
       <BrowserRouter>

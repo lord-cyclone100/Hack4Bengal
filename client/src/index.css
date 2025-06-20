@@ -3,12 +3,12 @@
 
 @font-face {
   font-family: Game;
-  src: url("../public/fonts/L0x5DF4xlVMF-BfR8bXMIjhLq38.woff2") format("woff2");
+  src: url("../fonts/L0x5DF4xlVMF-BfR8bXMIjhLq38.woff2") format("woff2");
 }
 
 @font-face {
   font-family: Game2;
-  src: url("../public/fonts/ZENTRY-Regular.woff2") format("woff2");
+  src: url("../fonts/ZENTRY-Regular.woff2") format("woff2");
 }
 
 @theme {

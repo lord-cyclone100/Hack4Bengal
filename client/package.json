@@ -12,6 +12,7 @@
   "dependencies": {
     "@civic/auth": "^0.8.0",
     "@tailwindcss/vite": "^4.1.10",
+    "friendly-username-generator": "^2.0.4",
     "lenis": "^1.3.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

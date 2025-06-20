@@ -18,10 +18,6 @@ const UserSchema = new Schema({
     required: [true, "Wallet Id must be given"],
     unique: true
   },
-
-  password: {
-    type: String,
-  }
 });
 
 const UserModel = model("h4b-user", UserSchema);
