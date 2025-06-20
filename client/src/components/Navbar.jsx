@@ -1,10 +1,14 @@
-import { Navigate, NavLink } from "react-router-dom";
+import { Navigate, NavLink, useNavigate } from "react-router-dom";
 import { CivicAuthProvider, UserButton, useUser } from "@civic/auth/react";
 
 export const Navbar = () => {
-  const { user } = useUser();
+  const { user, signIn } = useUser();
+  const navigate = useNavigate();
 
-  if (user) return <Navigate to={"/login/metamask"}/>
+  const handleSignIn = () => {
+    signIn();
+    navigate("/login/metamask");
+  };
 
   return (
     <div className="top-5 left-0 w-full shadow-lg backdrop-blur-md  flex items-center justify-center flex-column py-4 px-40">
@@ -18,8 +22,14 @@ export const Navbar = () => {
       </div>
       <div className="navbar-end flex gap-4">
         <NavLink to='/'>Home</NavLink>
-        <UserButton className="btn! btn-outline! btn-success!" />
-        {/* {console.log(user)} */}
+        <div>
+          {
+            user ?
+              <UserButton className="btn! btn-outline! btn-success!" />
+              :
+              <button onClick={handleSignIn}>Sign In</button>
+          }
+        </div>
       </div>
     </div>
   );

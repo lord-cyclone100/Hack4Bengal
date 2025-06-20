@@ -6,19 +6,19 @@ const images = [
   "./background2.jpg",
   "./background3.jpg",
   "./background4.jpg"
-]
+];
 
 export const Home = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
     }, 10000); // 10 seconds
     return () => clearInterval(interval);
   }, []);
-    return(
-        <>
-            <div className=" relative bg-cover bg-center h-dvh w-full transition-all duration-1000 ease-in-out" style={{ backgroundImage: `url(${images[currentIndex]})` }}>
+  return (
+    <>
+      <div className=" relative bg-cover bg-center h-dvh w-full transition-all duration-1000 ease-in-out" style={{ backgroundImage: `url(${images[currentIndex]})` }}>
         <div className="absolute inset-0 bg-black/70"></div>
         <div className='relative z-10'>
           {/* <Navbar /> */}
@@ -49,6 +49,6 @@ export const Home = () => {
         <Card />
         <Card />
       </div>
-        </>
-    )
-}
+    </>
+  );
+};

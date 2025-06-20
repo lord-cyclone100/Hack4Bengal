@@ -2,9 +2,11 @@ import { useUser } from "@civic/auth/react";
 import { useState } from "react";
 import { BACKEND_URL } from "../App";
 import { generateUsername } from 'friendly-username-generator';
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const Login = () => {
-    const { user } = useUser();
+    const { user, signOut } = useUser();
+    const navigate = useNavigate();
 
     const handleMetaMaskLogin = async (e) => {
         e.preventDefault();
@@ -39,6 +41,8 @@ export const Login = () => {
                 catch (err) {
                     console.log(err);
                 }
+
+                navigate("/");
             }
 
             catch (err) {
@@ -51,6 +55,11 @@ export const Login = () => {
         }
     };
 
+    const handleSignOut = () => {
+        signOut();
+        navigate("/");
+    };
+
     return (
         <>
             <div className="w-full h-dvh flex items-center justify-center">
@@ -60,12 +69,14 @@ export const Login = () => {
                         <img src="https://1000logos.net/wp-content/uploads/2022/05/MetaMask-Logo.png" className="h-[6vw]" />
                     </div>
                     <button className="btn btn-primary w-2/6" onClick={handleMetaMaskLogin}>Connect Wallet</button>
+                    <div className="divider text-gray-700">OR</div>
+                    <button className="btn btn-error h-8" onClick={handleSignOut}>Logout</button>
                 </div>
             </div>
         </>
         // <form onSubmit={handleMetaMaskLogin}>
         //     <button>Sign in to metamask</button>
         // </form>
-        
+
     );
 };
