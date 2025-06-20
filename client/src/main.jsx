@@ -6,7 +6,7 @@ import { CivicAuthProvider,UserButton } from "@civic/auth/react";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <CivicAuthProvider clientId="a777ddc5-4a67-47ad-8439-0fb8e1fe40a6">
+    <CivicAuthProvider clientId={import.meta.env.VITE_CLIENTID}>
       <App />
     </CivicAuthProvider>
   </StrictMode>,
