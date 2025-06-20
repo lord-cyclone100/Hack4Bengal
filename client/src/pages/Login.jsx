@@ -52,8 +52,20 @@ export const Login = () => {
     };
 
     return (
-        <form onSubmit={handleMetaMaskLogin}>
-            <button>Sign in to metamask</button>
-        </form>
+        <>
+            <div className="w-full h-dvh flex items-center justify-center">
+                <div className="h-[30vh] w-[30vw] border-emerald-800 border-4 rounded-4xl flex flex-col items-center justify-center bg-white">
+                    <div className="flex items-center justify-center gap-2">
+                        <h1 className="text-black text-[1.4vw]">Login via</h1>
+                        <img src="https://1000logos.net/wp-content/uploads/2022/05/MetaMask-Logo.png" className="h-[6vw]" />
+                    </div>
+                    <button className="btn btn-primary w-2/6" onClick={handleMetaMaskLogin}>Connect Wallet</button>
+                </div>
+            </div>
+        </>
+        // <form onSubmit={handleMetaMaskLogin}>
+        //     <button>Sign in to metamask</button>
+        // </form>
+        
     );
 };
