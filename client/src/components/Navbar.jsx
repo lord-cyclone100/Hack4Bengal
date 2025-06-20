@@ -1,6 +1,10 @@
+import { NavLink } from "react-router-dom"
+import { CivicAuthProvider,UserButton, useUser } from "@civic/auth/react";
+
 export const Navbar = () =>{
+  const { user } = useUser();
 	return(
-		<div className="top-0 left-0 w-full shadow-lg backdrop-blur-md bg-gradient-to-b from-white/8 via-white/4 to-white/0 flex items-center justify-center flex-column py-8 px-40">
+		<div className="top-5 left-0 w-full shadow-lg backdrop-blur-md  flex items-center justify-center flex-column py-4 px-40">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -10,8 +14,9 @@ export const Navbar = () =>{
         <a className="btn btn-ghost text-xl">daisyUI</a>
       </div>
       <div className="navbar-end flex gap-4">
-        <a><button className="btn btn-outline btn-success">Login</button></a>
-        <a><button className="btn btn-soft btn-success">Sign Up</button></a>
+        <NavLink to='/'>Home</NavLink>
+          <NavLink to='/login/metamask'><UserButton className="btn! btn-outline! btn-success!"/></NavLink>
+          {console.log(user)}   
       </div>
     </div>
 	) 

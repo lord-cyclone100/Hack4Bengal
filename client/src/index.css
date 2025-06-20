@@ -15,3 +15,8 @@
   --font-game: Game, "sans-serif";
   --font-game2: Game2, "sans-serif";
 }
+
+::selection {
+  background: #7f5af0; /* Your custom background color */
+  color: white;        /* Optional: text color while selected */
+}

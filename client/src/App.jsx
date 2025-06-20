@@ -3,22 +3,17 @@ import './App.css'
 import { Navbar } from './components/Navbar'
 import { Card } from './components/Card'
 import Lenis from "lenis";
+import { Footer } from './components/Footer';
+import { Home } from './pages/Home';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Login } from './pages/Login';
+import { Register } from './pages/Register';
+import { Contact } from './pages/Contact';
 
-const images = [
-  "./background1.jpg",
-  "./background2.jpg",
-  "./background3.jpg",
-  "./background4.jpg"
-]
+
 
 export const App = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 10000); // 10 seconds
-    return () => clearInterval(interval);
-  }, []);
+  
   useEffect(()=>{
     const lenis = new Lenis();
     function raf(time){
@@ -29,37 +24,18 @@ export const App = () => {
   },[])
   return (
     <>
-      <div className="bg-cover bg-center h-dvh w-full transition-all duration-1000 ease-in-out" style={{ backgroundImage: `url(${images[currentIndex]})` }}>
-        <div className="absolute inset-0 bg-black/70"></div>
-        <div className='relative z-10'>
-          <Navbar />
-          <div className='flex flex-col gap-8 pl-40 pt-20'>
-            <div className='font-game2 text-9xl'>
-              <h1>Get Ready To</h1>
-              <h1>Play, Explore</h1>
-              <h1>and Conquer</h1>
-            </div>
-            <div className='font-game text-lg'>
-              <p>Embark on your gaming journey of discovery and excitement</p>
-              <p>right here, where the world of immersive gameplay</p>
-            </div>
-            <button class="btn btn-primary w-1/6">Explore</button>
-          </div>
-        </div>
-      </div>
-      <div className='flex flex-wrap px-40 items-center justify-between gap-10'>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
+      <BrowserRouter>
+        <Navbar/>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/createtournament' element={<Register/>}/>
+          <Route path='/login/metamask' element={<Login/>}/>
+          <Route path='/dashboard/:id' element={<Contact/>}/>
+        </Routes>
+
+      </BrowserRouter>
+      {/* <Home/> */}
+      <Footer />
     </>
   )
 }
