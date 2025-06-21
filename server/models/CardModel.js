@@ -6,7 +6,7 @@ const CardSchema = new Schema({
     required: [true, "Title is required"]
   },
 
-  desciption: {
+  description: {
     type: String,
     required: [true, "Description is required"]
   },
@@ -17,7 +17,7 @@ const CardSchema = new Schema({
     required: [true, "Hostname is required"]
   },
 
-  url: {
+  pictureUrl: {
     type: String,
   },
 
@@ -42,6 +42,6 @@ const CardSchema = new Schema({
   }
 });
 
-const CardModel = model("h4b-card", CardSchema);
+const CardModel = model("h4b-cards", CardSchema);
 
 export default CardModel;

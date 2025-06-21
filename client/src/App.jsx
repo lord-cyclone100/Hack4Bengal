@@ -13,7 +13,7 @@ export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const App = () => {
   const location = useLocation();
-  const hideLayout = location.pathname === '/createtournament';
+  const hideLayout = location.pathname === '/create-tournament';
 
   useEffect(() => {
     const lenis = new Lenis();
@@ -29,7 +29,7 @@ export const App = () => {
       {!hideLayout && <Navbar />}
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/createtournament' element={<CreateTournament />} />
+        <Route path='/create-tournament' element={<CreateTournament />} />
         <Route path='/login/metamask' element={<Login />} />
         <Route path='/dashboard/:id' element={<Contact />} />
       </Routes>
