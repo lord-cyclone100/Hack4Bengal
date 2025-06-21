@@ -49,13 +49,14 @@ app.post('/login', async (req, res) => {
 
 app.post("/create-tournament", async (req, res) => {
   const { title, description, hostName, pictureUrl, startdate, deadline, prizeMoney } = req.body;
+  console.log(hostName);
 
   const currentDate = new Date().toISOString().split('T')[0];
   const isLive = deadline > currentDate;
 
   try {
     const host = await UserModel.findOne({ email: hostName });
-    // console.log(host);
+    console.log(host);
 
     if (!host) {
       return res.status(404).json({ message: "Please sign in first" });

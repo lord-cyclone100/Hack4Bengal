@@ -1,9 +1,11 @@
 import { useRef, useState } from "react";
 import { BACKEND_URL } from "../App";
 import { useUser } from "@civic/auth/react";
+import { useNavigate } from "react-router-dom";
 
 export const CreateTournament = () => {
     const { user } = useUser();
+    const navigate = useNavigate();
 
     const [createForm, setCreateForm] = useState({
         title: "",
@@ -18,8 +20,11 @@ export const CreateTournament = () => {
     const handleCreateSubmit = async (e) => {
         e.preventDefault();
 
-        setCreateForm({ ...createForm, pictureUrl: "https://images.pexels.com/photos/275033/pexels-photo-275033.jpeg" });
-        setCreateForm({ ...createForm, hostName: user.email });
+        const payload = {
+            ...createForm,
+            pictureUrl: "https://images.pexels.com/photos/275033/pexels-photo-275033.jpeg",
+            hostName: user.email
+        };
 
         console.log(createForm);
         try {
@@ -27,10 +32,12 @@ export const CreateTournament = () => {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json' },
                 credentials: "include",
-                body: JSON.stringify(createForm)
+                body: JSON.stringify(payload)
             });
 
             console.log(response);
+
+            // navigate("/");
         }
 
         catch (err) {
