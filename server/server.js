@@ -148,7 +148,7 @@ app.get("/all-games", async (req, res) => {
 
 app.get("/all-tournaments", async (req, res) => {
   try {
-    const tournaments = await CardModel.find({});
+    const tournaments = await CardModel.find({}).populate("hostName");
     res.status(200).json({ message: tournaments });
   }
 

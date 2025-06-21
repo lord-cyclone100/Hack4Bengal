@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Card } from "../components/Card";
+import { BACKEND_URL } from "../App";
 
 const images = [
   "./background1.jpg",
@@ -10,6 +11,7 @@ const images = [
 
 export const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [dat,setDat] = useState([]);
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -17,11 +19,26 @@ export const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    (async () => {
-      const result = await fetch();
-    })();
-  }, []);
+  useEffect(()=>{
+    getDetails();
+  },[]);
+
+  const getDetails = async() => {
+    try{
+      const response = await fetch(`${BACKEND_URL}/all-tournaments`,{method:"GET"})
+      if(response.ok){
+        console.log(response);
+        const data = await response.json();
+        console.log(data.message)
+        setDat(data.message);
+        // return data2;
+      }
+    }
+    catch(error){
+      console.error(error);  
+    }
+  }
+  
 
 
   return (
@@ -45,17 +62,11 @@ export const Home = () => {
         </div>
       </div>
       <div className='flex flex-wrap px-40 items-center justify-between gap-10'>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {
+          dat.map((curItem)=>{
+            return <Card key={curItem._id} val={curItem}/>
+          })
+        } 
       </div>
     </>
   );
