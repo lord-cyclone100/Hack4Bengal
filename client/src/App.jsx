@@ -8,6 +8,7 @@ import { Login } from './pages/Login';
 import { Contact } from './pages/Contact';
 import Lenis from 'lenis';
 import { CreateTournament } from './pages/CreateTournament';
+import { GameSelector } from './components/GameSelector';
 
 export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -26,14 +27,15 @@ export const App = () => {
 
   return (
     <>
-      {!hideLayout && <Navbar />}
-      <Routes>
+      <Navbar />
+      {/* <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/create-tournament' element={<CreateTournament />} />
         <Route path='/login/metamask' element={<Login />} />
         <Route path='/dashboard/:id' element={<Contact />} />
-      </Routes>
-      {!hideLayout && <Footer />}
+      </Routes> */}
+      <GameSelector />
+      <Footer />
     </>
   );
 };

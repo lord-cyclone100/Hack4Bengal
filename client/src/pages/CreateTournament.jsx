@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { BACKEND_URL } from "../App";
 import { useUser } from "@civic/auth/react";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify'
 
 export const CreateTournament = () => {
     const { user } = useUser();
@@ -37,7 +38,8 @@ export const CreateTournament = () => {
 
             console.log(response);
 
-            // navigate("/");
+            navigate("/");
+            toast.success("Tournament created successfully");
         }
 
         catch (err) {

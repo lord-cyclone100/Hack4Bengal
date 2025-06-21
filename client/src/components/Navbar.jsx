@@ -24,6 +24,14 @@ export const Navbar = () => {
         <NavLink to='/'>Home</NavLink>
         <div>
           {
+            user?
+            <NavLink to='/create-tournament'>Create</NavLink>
+            :
+            <button className="hidden"></button>
+          }
+        </div>
+        <div>
+          {
             user ?
               <UserButton className="btn! btn-outline! btn-success! z-20" />
               :
