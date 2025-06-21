@@ -11,7 +11,7 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="top-5 left-0 w-full shadow-lg backdrop-blur-md  flex items-center justify-center flex-column py-4 px-40">
+    <div className="top-5 left-0 w-full shadow-lg backdrop-blur-md  flex items-center justify-center flex-column py-4 px-40 z-20">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -25,7 +25,7 @@ export const Navbar = () => {
         <div>
           {
             user ?
-              <UserButton className="btn! btn-outline! btn-success!" />
+              <UserButton className="btn! btn-outline! btn-success! z-20" />
               :
               <button onClick={handleSignIn}>Sign In</button>
           }

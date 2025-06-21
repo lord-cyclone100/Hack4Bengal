@@ -18,9 +18,9 @@ export const Home = () => {
   }, []);
   return (
     <>
-      <div className=" relative bg-cover bg-center h-dvh w-full transition-all duration-1000 ease-in-out" style={{ backgroundImage: `url(${images[currentIndex]})` }}>
+      <div className=" relative bg-cover bg-center h-dvh w-full transition-all duration-1000 ease-in-out top-5" style={{ backgroundImage: `url(${images[currentIndex]})` }}>
         <div className="absolute inset-0 bg-black/70"></div>
-        <div className='relative z-10'>
+        <div className='relative z-5'>
           {/* <Navbar /> */}
           <div className='flex flex-col gap-8 pl-40 pt-20'>
             <div className='font-game2 text-9xl'>

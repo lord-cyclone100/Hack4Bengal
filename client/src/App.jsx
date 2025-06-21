@@ -26,7 +26,7 @@ export const App = () => {
   
   return (
     <>
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Navbar/>
         <Routes>
           <Route path='/' element={<Home/>}/>
@@ -36,8 +36,8 @@ export const App = () => {
         </Routes>
 
       </BrowserRouter>
-      {/* <Home/> */}
-      <Footer />
+      <Footer /> */}
+      <Register/>
     </>
   )
 }
