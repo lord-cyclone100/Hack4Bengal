@@ -82,7 +82,7 @@ export const CreateTournament = () => {
                             </div>
                             <div className="flex flex-col items-start">
                                 <label htmlFor="prizemoney">Select Prize Money (in wei)</label>
-                                <input type="number" placeholder="Prize Money" className="input input-primary" onChange={(e) => setCreateForm({ ...createForm, prizeMoney: e.target.value })} />
+                                <input type="number" step="any" placeholder="Prize Money" className="input input-primary" onChange={(e) => setCreateForm({ ...createForm, prizeMoney: e.target.value })} />
                             </div>
                         </div>
 
