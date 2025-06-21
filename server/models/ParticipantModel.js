@@ -16,6 +16,6 @@ const ParticipantSchema = new Schema({
 
 ParticipantSchema.index({ game: 1, participant: 1 }, { unique: true });
 
-const ParticipantModel = model(ParticipantSchema, "h4b-participants");
+const ParticipantModel = model("h4b-participants",ParticipantSchema);
 
 export default ParticipantModel;

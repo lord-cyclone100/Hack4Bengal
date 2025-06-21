@@ -7,6 +7,7 @@ import UserModel from "./models/UserModel.js";
 import CardModel from "./models/CardModel.js";
 import UserGameModel from "./models/UserGamesModel.js";
 import GamesModel from "./models/GamesModel.js";
+import ParticipantModel from "./models/ParticipantModel.js";
 
 dotenv.config();
 const app = express();
@@ -154,6 +155,24 @@ app.get("/all-tournaments", async (req, res) => {
 
   catch (err) {
     res.status(500).json({ message: "Couldn't retrieve the tournaments", err });
+  }
+});
+
+app.post("/participate-in", async (req, res) => {
+  const { gameId, author } = req.body;
+
+  try {
+    await ParticipantModel.create({
+      game: gameId,
+      participant: author
+    });
+
+    res.status(200).json({ message: "Participated succesfully" });
+  }
+
+  catch (err) {
+    // console.error(err.message);
+    res.status(500).json({ message: "Error participating", err: err.message });
   }
 });
 
