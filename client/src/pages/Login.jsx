@@ -99,7 +99,7 @@ export const Login = () => {
                 console.log(err);
             }
 
-            navigate("/");
+            navigate("/my-games");
             toast.success("Wallet added successfully");
         } catch (err) {
             console.log(err);

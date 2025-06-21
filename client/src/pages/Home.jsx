@@ -16,6 +16,14 @@ export const Home = () => {
     }, 10000); // 10 seconds
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    (async () => {
+      const result = await fetch();
+    })();
+  }, []);
+
+
   return (
     <>
       <div className=" relative bg-cover bg-center h-dvh w-full transition-all duration-1000 ease-in-out top-5" style={{ backgroundImage: `url(${images[currentIndex]})` }}>

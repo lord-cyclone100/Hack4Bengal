@@ -9,6 +9,7 @@ import { Contact } from './pages/Contact';
 import Lenis from 'lenis';
 import { CreateTournament } from './pages/CreateTournament';
 import { GameSelector } from './components/GameSelector';
+import CreateAllGames from './pages/CreateAllGames';
 
 export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -28,13 +29,14 @@ export const App = () => {
   return (
     <>
       <Navbar />
-      {/* <Routes>
+      <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/create-tournament' element={<CreateTournament />} />
         <Route path='/login/metamask' element={<Login />} />
         <Route path='/dashboard/:id' element={<Contact />} />
-      </Routes> */}
-      <GameSelector />
+        <Route path='/my-games' element={<GameSelector />}></Route>
+        <Route path='/create-all-games' element={<CreateAllGames />}></Route>
+      </Routes>
       <Footer />
     </>
   );
