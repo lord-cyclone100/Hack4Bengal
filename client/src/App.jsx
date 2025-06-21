@@ -1,43 +1,39 @@
-import { useEffect, useState } from 'react'
-import './App.css'
-import { Navbar } from './components/Navbar'
-import { Card } from './components/Card'
-import Lenis from "lenis";
+import { useEffect } from 'react';
+import './App.css';
+import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { Login } from './pages/Login';
-import { Register } from './pages/Register';
 import { Contact } from './pages/Contact';
+import Lenis from 'lenis';
+import { CreateTournament } from './pages/CreateTournament';
 
 export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
-
 export const App = () => {
-  
-  useEffect(()=>{
+  const location = useLocation();
+  const hideLayout = location.pathname === '/createtournament';
+
+  useEffect(() => {
     const lenis = new Lenis();
-    function raf(time){
+    function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
-  },[])
-  
+  }, []);
+
   return (
     <>
-      {/* <BrowserRouter>
-        <Navbar/>
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/createtournament' element={<Register/>}/>
-          <Route path='/login/metamask' element={<Login/>}/>
-          <Route path='/dashboard/:id' element={<Contact/>}/>
-        </Routes>
-
-      </BrowserRouter>
-      <Footer /> */}
-      <Register/>
+      {!hideLayout && <Navbar />}
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/createtournament' element={<CreateTournament />} />
+        <Route path='/login/metamask' element={<Login />} />
+        <Route path='/dashboard/:id' element={<Contact />} />
+      </Routes>
+      {!hideLayout && <Footer />}
     </>
-  )
-}
+  );
+};
