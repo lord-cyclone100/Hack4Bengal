@@ -10,6 +10,7 @@ import Lenis from 'lenis';
 import { CreateTournament } from './pages/CreateTournament';
 import { GameSelector } from './components/GameSelector';
 import CreateAllGames from './pages/CreateAllGames';
+import { Joingame } from './pages/Joingame';
 
 export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -36,6 +37,7 @@ export const App = () => {
         <Route path='/dashboard/:id' element={<Contact />} />
         <Route path='/my-games' element={<GameSelector />}></Route>
         <Route path='/create-all-games' element={<CreateAllGames />}></Route>
+        <Route path='/join-tournament' element={<Joingame />}></Route>
       </Routes>
       <Footer />
     </>
